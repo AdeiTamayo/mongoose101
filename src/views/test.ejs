@@ -77,23 +77,20 @@
         }
 
         async function deleteIkasle() {
-            try {
-                const id = document.getElementById('deleteId').value;
+            const id = document.getElementById("deleteId").value;
 
-                const response = await fetch(`/api/ikasleak/${id}`, {
-                    method: 'DELETE',
-                });
+            const response = await fetch(`/api/ikasleak/${id}`, {
+                method: "DELETE",
+            });
 
-                if (!response.ok) throw new Error('Failed to delete ikasle');
-                const data = await response.json();
-                document.getElementById('deletedIkasle').innerText = JSON.stringify(data, null, 2);
-
-                // Refresh ikasleak after deletion
-                fetchIkasleak();
-            } catch (error) {
-                console.error('Error deleting ikasle:', error);
-            }
+            const data = await response.json();
+            document.getElementById("deletedIkasle").innerText = JSON.stringify(
+                data,
+                null,
+                2
+            );
         }
+
     </script>
 </head>
 
